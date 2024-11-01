@@ -33,3 +33,4 @@ C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEnt
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.dll
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
+C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources

@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202411011851265_UpdateStoredProcedures.Designer.cs">
       <DependentUpon>202411011851265_UpdateStoredProcedures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411012005004_NewUpdateStoredProcedure.cs" />
+    <Compile Include="Migrations\202411012005004_NewUpdateStoredProcedure.Designer.cs">
+      <DependentUpon>202411012005004_NewUpdateStoredProcedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411011851265_UpdateStoredProcedures.resx">
       <DependentUpon>202411011851265_UpdateStoredProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411012005004_NewUpdateStoredProcedure.resx">
+      <DependentUpon>202411012005004_NewUpdateStoredProcedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
