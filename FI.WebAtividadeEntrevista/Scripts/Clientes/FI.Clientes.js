@@ -1,5 +1,6 @@
 ﻿
 $(document).ready(function () {
+    ValideCPF();
     $('#formCadastro').submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -11,7 +12,7 @@ $(document).ready(function () {
                 "Email": $(this).find("#Email").val(),
                 "Sobrenome": $(this).find("#Sobrenome").val(),
                 "Nacionalidade": $(this).find("#Nacionalidade").val(),
-                "Cpf": $(this).find("#Cpf").val(),
+                "CPF": $(this).find("#CPF").val(),
                 "Estado": $(this).find("#Estado").val(),
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
@@ -56,4 +57,20 @@ function ModalDialog(titulo, texto) {
 
     $('body').append(texto);
     $('#' + random).modal('show');
+}
+
+function ValideCPF() {
+    $('#CPF').on('input', function () {
+        let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
+
+        if (cpf.length > 9) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        } else if (cpf.length > 6) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+        } else if (cpf.length > 3) {
+            cpf = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+        }
+
+        $(this).val(cpf); // Atualiza o campo com o CPF formatado
+    });
 }
