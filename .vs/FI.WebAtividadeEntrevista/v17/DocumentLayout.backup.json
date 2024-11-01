@@ -1,18 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\",
+  "WorkspaceRootPath": "C:\\Users\\RicardoRedin\\Documents\\Projects\\FuncaoSistemasAtividade\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\fi.atividadeentrevista\\dal\\clientes\\daocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|solutionrelative:fi.atividadeentrevista\\dal\\clientes\\daocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EDA04BC2-EFC2-487F-8F40-A95C652F6A15}|FI.WebAtividadeEntrevista\\FI.WebAtividadeEntrevista.csproj|C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\fi.webatividadeentrevista\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDA04BC2-EFC2-487F-8F40-A95C652F6A15}|FI.WebAtividadeEntrevista\\FI.WebAtividadeEntrevista.csproj|solutionrelative:fi.webatividadeentrevista\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\fi.atividadeentrevista\\dml\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|solutionrelative:fi.atividadeentrevista\\dml\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|c:\\users\\ricardoredin\\documents\\projects\\funcaosistemasatividade\\fi.atividadeentrevista\\migrations\\202411011851265_updatestoredprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B795BB7-A890-48FA-8F70-EF89F2E318D8}|FI.AtividadeEntrevista\\FI.AtividadeEntrevista.csproj|solutionrelative:fi.atividadeentrevista\\migrations\\202411011851265_updatestoredprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,48 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DaoCliente.cs",
-              "DocumentMoniker": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\DAL\\Clientes\\DaoCliente.cs",
-              "RelativeDocumentMoniker": "FI.AtividadeEntrevista\\DAL\\Clientes\\DaoCliente.cs",
-              "ToolTip": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\DAL\\Clientes\\DaoCliente.cs",
-              "RelativeToolTip": "FI.AtividadeEntrevista\\DAL\\Clientes\\DaoCliente.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAmwJoAAAAuAAAAAAAAAA==",
+              "Title": "202411011851265_UpdateStoredProcedures.cs",
+              "DocumentMoniker": "C:\\Users\\RicardoRedin\\Documents\\Projects\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\Migrations\\202411011851265_UpdateStoredProcedures.cs",
+              "RelativeDocumentMoniker": "FI.AtividadeEntrevista\\Migrations\\202411011851265_UpdateStoredProcedures.cs",
+              "ToolTip": "C:\\Users\\RicardoRedin\\Documents\\Projects\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\Migrations\\202411011851265_UpdateStoredProcedures.cs",
+              "RelativeToolTip": "FI.AtividadeEntrevista\\Migrations\\202411011851265_UpdateStoredProcedures.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswHQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T12:29:39.694Z",
+              "WhenOpened": "2024-11-01T18:51:30.211Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteController.cs",
-              "DocumentMoniker": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.WebAtividadeEntrevista\\Controllers\\ClienteController.cs",
-              "RelativeDocumentMoniker": "FI.WebAtividadeEntrevista\\Controllers\\ClienteController.cs",
-              "ToolTip": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.WebAtividadeEntrevista\\Controllers\\ClienteController.cs",
-              "RelativeToolTip": "FI.WebAtividadeEntrevista\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAcwHEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T12:29:18.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\DML\\Cliente.cs",
-              "RelativeDocumentMoniker": "FI.AtividadeEntrevista\\DML\\Cliente.cs",
-              "ToolTip": "C:\\Users\\rredin\\Music\\FuncaoSistemasAtividade\\FI.AtividadeEntrevista\\DML\\Cliente.cs",
-              "RelativeToolTip": "FI.AtividadeEntrevista\\DML\\Cliente.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAmwEcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T12:29:07.81Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }

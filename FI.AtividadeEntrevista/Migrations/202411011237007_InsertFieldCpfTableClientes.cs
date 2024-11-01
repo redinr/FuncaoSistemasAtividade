@@ -8,36 +8,7 @@
         public override void Up()
         {
             AddColumn("dbo.CLIENTES", "CPF", c => c.String(nullable: false, maxLength: 11));            
-            
-            CreateStoredProcedure(
-                "dbo.Cliente_Insert",
-                p => new
-                    {
-                        CEP = p.String(),
-                        Cidade = p.String(),
-                        Email = p.String(),
-                        Estado = p.String(),
-                        Logradouro = p.String(),
-                        Nacionalidade = p.String(),
-                        Nome = p.String(),
-                        Sobrenome = p.String(),
-                        Telefone = p.String(),
-                        CPF = p.String(maxLength: 11),
-                    },
-                body:
-                    @"INSERT [dbo].[CLIENTES]([CEP], [Cidade], [Email], [Estado], [Logradouro], [Nacionalidade], [Nome], [Sobrenome], [Telefone], [CPF])
-                      VALUES (@CEP, @Cidade, @Email, @Estado, @Logradouro, @Nacionalidade, @Nome, @Sobrenome, @Telefone, @CPF)
-                      
-                      DECLARE @Id bigint
-                      SELECT @Id = [Id]
-                      FROM [dbo].[CLIENTES]
-                      WHERE @@ROWCOUNT > 0 AND [Id] = scope_identity()
-                      
-                      SELECT t0.[Id]
-                      FROM [dbo].[CLIENTES] AS t0
-                      WHERE @@ROWCOUNT > 0 AND t0.[Id] = @Id"
-            );
-            
+                        
             CreateStoredProcedure(
                 "dbo.Cliente_Update",
                 p => new

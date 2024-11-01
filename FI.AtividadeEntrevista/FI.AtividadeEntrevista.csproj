@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202411011237007_InsertFieldCpfTableClientes.Designer.cs">
       <DependentUpon>202411011237007_InsertFieldCpfTableClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411011851265_UpdateStoredProcedures.cs" />
+    <Compile Include="Migrations\202411011851265_UpdateStoredProcedures.Designer.cs">
+      <DependentUpon>202411011851265_UpdateStoredProcedures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202411011237007_InsertFieldCpfTableClientes.resx">
       <DependentUpon>202411011237007_InsertFieldCpfTableClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411011851265_UpdateStoredProcedures.resx">
+      <DependentUpon>202411011851265_UpdateStoredProcedures.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
