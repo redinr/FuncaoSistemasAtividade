@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FI.AtividadeEntrevista.DML;
+using Microsoft.Ajax.Utilities;
+using System.Text.RegularExpressions;
 
 namespace WebAtividadeEntrevista.Controllers
 {
@@ -16,7 +18,6 @@ namespace WebAtividadeEntrevista.Controllers
             return View();
         }
 
-
         public ActionResult Incluir()
         {
             return View();
@@ -26,7 +27,21 @@ namespace WebAtividadeEntrevista.Controllers
         public JsonResult Incluir(ClienteModel model)
         {
             BoCliente bo = new BoCliente();
-            
+
+            var validaCpf = RemoveFormatacaoCPf(model);
+            if (!validaCpf)
+            {                
+                Response.StatusCode = 400;
+                return Json(string.Join(Environment.NewLine, "O CPF deve conter 11 dígitos e ser válido."));
+            }
+
+            var cpfExistente = bo.VerificarExistencia(model.CPF);
+            if (cpfExistente)
+            {
+                Response.StatusCode = 400;
+                return Json(string.Join(Environment.NewLine, "O CPF já cadastrado na base de dados."));
+            }
+
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -38,9 +53,9 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                
+
                 model.Id = bo.Incluir(new Cliente()
-                {                    
+                {
                     CEP = model.CEP,
                     Cidade = model.Cidade,
                     Email = model.Email,
@@ -53,7 +68,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Telefone = model.Telefone
                 });
 
-           
+
                 return Json("Cadastro efetuado com sucesso");
             }
         }
@@ -62,7 +77,22 @@ namespace WebAtividadeEntrevista.Controllers
         public JsonResult Alterar(ClienteModel model)
         {
             BoCliente bo = new BoCliente();
-       
+
+            var validaCpf = RemoveFormatacaoCPf(model);
+
+            if (!validaCpf)
+            {
+                Response.StatusCode = 400;
+                return Json(string.Join(Environment.NewLine, "O CPF deve conter 11 dígitos e ser válido."));
+            }
+
+            var cpfExistente = bo.VerificarExistencia(model.CPF);
+            if (cpfExistente)
+            {
+                Response.StatusCode = 400;
+                return Json(string.Join(Environment.NewLine, "O CPF já cadastrado na base de dados."));
+            }
+
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -88,7 +118,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone
                 });
-                               
+
                 return Json("Cadastro alterado com sucesso");
             }
         }
@@ -117,7 +147,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Telefone = cliente.Telefone
                 };
 
-            
+
             }
 
             return View(model);
@@ -149,5 +179,37 @@ namespace WebAtividadeEntrevista.Controllers
                 return Json(new { Result = "ERROR", Message = ex.Message });
             }
         }
+
+        /// <summary>
+        /// Verifica se o CPF não está vazio e remove a formatação do mesmo.
+        /// </summary>
+        /// <param name="model"></param>
+        private bool RemoveFormatacaoCPf(ClienteModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.CPF))
+            {
+                return false;
+            }
+            else
+            {
+                model.CPF = Regex.Replace(model.CPF, @"[^\d]", "");
+                return ValidaCpf(model.CPF);
+            }
+        }
+
+        /// <summary>
+        /// Valida se o CPF contém os 11 dígitos ou não.
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        private bool ValidaCpf(string cpf)
+        {
+            if(cpf.Length == 11)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }
