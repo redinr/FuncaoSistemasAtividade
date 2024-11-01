@@ -160,3 +160,6 @@ C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\obj\Debu
 C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\obj\Debug\FI.WebAt.CEBAAAF9.Up2Date
 C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\obj\Debug\FI.WebAtividadeEntrevista.dll
 C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\obj\Debug\FI.WebAtividadeEntrevista.pdb
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\bin\EntityFramework.dll
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\bin\FI.AtividadeEntrevista.dll.config
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.WebAtividadeEntrevista\bin\EntityFramework.xml

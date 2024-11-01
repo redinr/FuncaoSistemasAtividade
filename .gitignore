@@ -6,3 +6,6 @@
 /.vs
 /packages
 /FI.WebAtividadeEntrevista/obj
+/FI.AtividadeEntrevista/bin
+/FI.WebAtividadeEntrevista/bin
+/FI.WebAtividadeEntrevista/App_Data
