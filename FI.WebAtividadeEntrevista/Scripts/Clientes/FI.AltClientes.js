@@ -1,11 +1,14 @@
 ﻿
 $(document).ready(function () {
+    ValideCPF();
+
     if (obj) {
         $('#formCadastro #Nome').val(obj.Nome);
         $('#formCadastro #CEP').val(obj.CEP);
         $('#formCadastro #Email').val(obj.Email);
         $('#formCadastro #Sobrenome').val(obj.Sobrenome);
         $('#formCadastro #Nacionalidade').val(obj.Nacionalidade);
+        $('#formCadastro #CPF').val(obj.CPF);
         $('#formCadastro #Estado').val(obj.Estado);
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
@@ -24,6 +27,7 @@ $(document).ready(function () {
                 "Email": $(this).find("#Email").val(),
                 "Sobrenome": $(this).find("#Sobrenome").val(),
                 "Nacionalidade": $(this).find("#Nacionalidade").val(),
+                "CPF": $(this).find("#CPF").val(),
                 "Estado": $(this).find("#Estado").val(),
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
@@ -69,4 +73,20 @@ function ModalDialog(titulo, texto) {
 
     $('body').append(texto);
     $('#' + random).modal('show');
+}
+
+function ValideCPF() {
+    $('#CPF').on('input', function () {
+        let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
+
+        if (cpf.length > 9) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        } else if (cpf.length > 6) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+        } else if (cpf.length > 3) {
+            cpf = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+        }
+
+        $(this).val(cpf); // Atualiza o campo com o CPF formatado
+    });
 }

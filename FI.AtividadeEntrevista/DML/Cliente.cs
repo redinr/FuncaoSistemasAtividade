@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace FI.AtividadeEntrevista.DML
     /// <summary>
     /// Classe de cliente que representa o registo na tabela Cliente do Banco de Dados
     /// </summary>
+    [Table("CLIENTES")]
     public class Cliente
     {
         /// <summary>
@@ -59,6 +62,13 @@ namespace FI.AtividadeEntrevista.DML
         /// <summary>
         /// Telefone
         /// </summary>
-        public string Telefone { get; set; }        
+        public string Telefone { get; set; }
+
+        /// <summary>
+        /// Cpf
+        /// </summary>
+        [Required]
+        [MaxLength(11)]
+        public string CPF { get; set; }
     }    
 }
