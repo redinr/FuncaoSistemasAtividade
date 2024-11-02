@@ -1,5 +1,4 @@
-﻿using FI.AtividadeEntrevista.DML;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -116,6 +115,22 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiarios
                 }
             }
             return beneficiarios;
+        }
+
+        /// <summary>
+        /// Verefica se o cpf do beneficiario já existe na base de dados.
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        public bool VerificaCpf(string cpf)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+
+            parameters.Add(new System.Data.SqlClient.SqlParameter("CPF", cpf));
+
+            DataSet dataSet = base.Consultar("SP_VerificaCPF", parameters);
+
+            return dataSet.Tables[0].Rows.Count > 0;
         }
     }
 }

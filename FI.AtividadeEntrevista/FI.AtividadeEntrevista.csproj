@@ -76,6 +76,10 @@
     <Compile Include="Migrations\202411021028169_AddTableAndStoredProceduresBeneficiarios.Designer.cs">
       <DependentUpon>202411021028169_AddTableAndStoredProceduresBeneficiarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411021114103_IncludeSP_VerificaCPF.cs" />
+    <Compile Include="Migrations\202411021114103_IncludeSP_VerificaCPF.Designer.cs">
+      <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,7 @@
     <Content Include="DAL\Beneficiarios\Procedures\SP_DeletarBeneficiario.sql" />
     <Content Include="DAL\Beneficiarios\Procedures\SP_IncluirBeneficiario.sql" />
     <Content Include="DAL\Beneficiarios\Procedures\SP_ListarBeneficiarios.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_VerificaCPF.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_AltCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_ConsCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_DelCliente.sql" />
@@ -107,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411021028169_AddTableAndStoredProceduresBeneficiarios.resx">
       <DependentUpon>202411021028169_AddTableAndStoredProceduresBeneficiarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411021114103_IncludeSP_VerificaCPF.resx">
+      <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

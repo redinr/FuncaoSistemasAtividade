@@ -4,8 +4,8 @@
     {
         public long Incluir (DML.Beneficiario beneficiarios)
         {
-            //DAL.Beneficiarios
-            return 0;
+            DAL.Beneficiarios.DaoBeneficiario daoBen = new DAL.Beneficiarios.DaoBeneficiario();
+            return daoBen.Incluir (beneficiarios);
         }
     }
 }
