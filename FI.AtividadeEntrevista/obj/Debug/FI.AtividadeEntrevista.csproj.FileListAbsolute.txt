@@ -34,3 +34,6 @@ C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEnt
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.AddTableAndStoredProceduresBeneficiarios.resources
