@@ -9,6 +9,7 @@ namespace FI.AtividadeEntrevista.DAL.Context
         public AppDbContext() : base("BancoDeDados") { }
         
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Beneficiario> Beneficiarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -16,6 +17,7 @@ namespace FI.AtividadeEntrevista.DAL.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Cliente>().MapToStoredProcedures();
+            modelBuilder.Entity<Beneficiario>().MapToStoredProcedures();
         }
     }
 }

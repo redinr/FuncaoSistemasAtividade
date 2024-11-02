@@ -65,7 +65,7 @@ function alterarBeneficiario(index) {
     const beneficiario = beneficiarios[index];
     document.getElementById('cpfBeneficiario').value = beneficiario.cpfBeneficiario;
     document.getElementById('nomeBeneficiario').value = beneficiario.nomeBeneficiario;
-    excluirBeneficiario(index); // Remove o beneficiário atual para que seja atualizado
+    excluirBeneficiario(index); 
 }
 
 function excluirBeneficiario(index) {
@@ -75,7 +75,7 @@ function excluirBeneficiario(index) {
 
 function FormataCPF() {
     $('#cpfBeneficiario').on('input', function () {
-        let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
+        let cpf = $(this).val().replace(/\D/g, '');
 
         if (cpf.length > 9) {
             cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
@@ -85,6 +85,6 @@ function FormataCPF() {
             cpf = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
         }
 
-        $(this).val(cpf); // Atualiza o campo com o CPF formatado
+        $(this).val(cpf);
     });
 }

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using WebAtividadeEntrevista.Models;
+using FI.AtividadeEntrevista.BLL;
 
 namespace FI.WebAtividadeEntrevista.Controllers
 {
@@ -21,6 +22,7 @@ namespace FI.WebAtividadeEntrevista.Controllers
         [HttpPost]
         public JsonResult Incluir(BeneficiariosModel model)
         {
+            //BoBeneficiarios boBeneficiarios = new 
             return Json("Cadastro efetuado com sucesso");
         }
 
@@ -33,18 +35,9 @@ namespace FI.WebAtividadeEntrevista.Controllers
 
         
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public JsonResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return Json("Cadastro efetuado com sucesso");
         }
     }
 }
