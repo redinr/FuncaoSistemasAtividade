@@ -5,8 +5,12 @@
 @section scripts{
     <script>
         var urlPost = '@Url.Action("Incluir", "Cliente", new { area = "" })';
+        var urlIncluirBeneficiario = '@Url.Action("Incluir", "Beneficiarios", new { area = "" })';
     </script>
     @Scripts.Render("~/bundles/clientes")
 }
 <h2>@Html.Raw(ViewBag.Title)</h2>
 @Html.Partial("Forms")
+@Html.Partial("BeneficiariosModal")
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Benificiário</button>

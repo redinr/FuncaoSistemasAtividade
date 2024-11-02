@@ -3,12 +3,16 @@
     ViewBag.Title = "Alterar Cliente";
 }
 @section scripts{
-<script>
+    <script>
         var urlPost = '@Url.Action("Alterar", "Cliente", new { area = "" })';
         var obj = @Html.Raw(Json.Encode(Model));
         var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
-</script>
+        var urlAlterarBeneficiario = '@Url.Action("Alterar", "Beneficiarios", new { area = "" })';
+    </script>
     @Scripts.Render("~/bundles/altClientes")
 }
 <h2>@Html.Raw(ViewBag.Title)</h2>
 @Html.Partial("Forms")
+@Html.Partial("BeneficiariosModal")
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Benificiário</button>

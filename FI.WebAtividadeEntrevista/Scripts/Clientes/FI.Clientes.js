@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-    ValideCPF();
+    FormataCPF();
     $('#formCadastro').submit(function (e) {
         e.preventDefault();
         $.ajax({
@@ -59,7 +59,7 @@ function ModalDialog(titulo, texto) {
     $('#' + random).modal('show');
 }
 
-function ValideCPF() {
+function FormataCPF() {
     $('#CPF').on('input', function () {
         let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
 
