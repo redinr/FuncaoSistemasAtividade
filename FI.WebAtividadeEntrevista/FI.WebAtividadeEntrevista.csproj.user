@@ -35,7 +35,7 @@
           <SQLDebugging>False</SQLDebugging>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>https://localhost:44333/Cliente/Incluir</StartExternalURL>
+          <StartExternalURL>https://localhost:44333/Cliente</StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>

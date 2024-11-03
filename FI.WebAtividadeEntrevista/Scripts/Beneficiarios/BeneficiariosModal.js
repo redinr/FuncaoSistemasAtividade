@@ -8,6 +8,9 @@ function incluirBeneficiario() {
     const cpfBeneficiario = document.getElementById('cpfBeneficiario').value;
     const nomeBeneficiario = document.getElementById('nomeBeneficiario').value;
 
+    const campo = document.getElementById("idDoCampoForaDaModal");
+    const valorCampo = campo ? campo.value : null;
+    console.log(valorCampo); // Mostra o valor do campo no console
 
     var url = null;
     if (typeof urlIncluirBeneficiario !== 'undefined') {
