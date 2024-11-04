@@ -1,0 +1,56 @@
+﻿<style>
+    #btnIncluirBeneficiario {
+        margin-top: 25px;
+        padding-right: 22px;
+        width: 50%;
+        text-align: center;
+        margin-left: 30%;
+    }
+
+    #nomeBeneficiario {
+        width: 130%;
+    }
+</style>
+
+<div class="modal fade" id="beneficiariosModal" tabindex="-1" aria-labelledby="beneficiariosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Beneficiários</h4>
+            </div>
+            <div class="modal-body">
+                <form id="beneficiarioForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p id="fieldId" style="display:none"></p>
+                            <label for=" CPF" class="form-label">CPF:</label>
+                            <input type="text" required="required" class="form-control" maxlength="14" id="cpfBeneficiario" placeholder="Ex.: 999.999.999-99" oninput="this.value = formatarCPF(this.value)">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Nome" class="form-label">Nome:</label>
+                            <input type="text" required="required" class="form-control" id="nomeBeneficiario" placeholder="Ex.: Maria">
+                            <p id="fieldIdCliente" style="display:none"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" id="btnIncluirBeneficiario" class="btn btn-success" onclick="incluirBeneficiario()">Incluir</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="beneficiariosList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

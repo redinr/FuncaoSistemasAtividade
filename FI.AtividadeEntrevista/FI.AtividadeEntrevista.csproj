@@ -52,10 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BoBeneficiario.cs" />
     <Compile Include="BLL\BoCliente.cs" />
+    <Compile Include="DAL\Beneficiarios\DaoBeneficiario.cs" />
     <Compile Include="DAL\Clientes\DaoCliente.cs" />
     <Compile Include="DAL\Context\AppDbContext.cs" />
     <Compile Include="DAL\Padrao\FI.AcessoDados.cs" />
+    <Compile Include="DML\Beneficiario.cs" />
     <Compile Include="DML\Cliente.cs" />
     <Compile Include="Migrations\202411011237007_InsertFieldCpfTableClientes.cs" />
     <Compile Include="Migrations\202411011237007_InsertFieldCpfTableClientes.Designer.cs">
@@ -69,10 +72,28 @@
     <Compile Include="Migrations\202411012005004_NewUpdateStoredProcedure.Designer.cs">
       <DependentUpon>202411012005004_NewUpdateStoredProcedure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411021028169_AddTableAndStoredProceduresBeneficiarios.cs" />
+    <Compile Include="Migrations\202411021028169_AddTableAndStoredProceduresBeneficiarios.Designer.cs">
+      <DependentUpon>202411021028169_AddTableAndStoredProceduresBeneficiarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411021114103_IncludeSP_VerificaCPF.cs" />
+    <Compile Include="Migrations\202411021114103_IncludeSP_VerificaCPF.Designer.cs">
+      <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.cs" />
+    <Compile Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.Designer.cs">
+      <DependentUpon>202411032307042_UpdateSP_IncluirBeneficiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DAL\Beneficiarios\Procedures\SP_AlterarBeneficiario.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_ContarBeneficiariosPorCliente.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_DeletarBeneficiario.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_IncluirBeneficiario.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_ListarBeneficiarios.sql" />
+    <Content Include="DAL\Beneficiarios\Procedures\SP_VerificaCPF.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_AltCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_ConsCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_DelCliente.sql" />
@@ -93,7 +114,17 @@
     <EmbeddedResource Include="Migrations\202411012005004_NewUpdateStoredProcedure.resx">
       <DependentUpon>202411012005004_NewUpdateStoredProcedure.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411021028169_AddTableAndStoredProceduresBeneficiarios.resx">
+      <DependentUpon>202411021028169_AddTableAndStoredProceduresBeneficiarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411021114103_IncludeSP_VerificaCPF.resx">
+      <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.resx">
+      <DependentUpon>202411032307042_UpdateSP_IncluirBeneficiario.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

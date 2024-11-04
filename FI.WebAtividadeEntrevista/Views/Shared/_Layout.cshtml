@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title</title>    
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jtable")
     @Scripts.Render("~/bundles/modernizr")
@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Clientes", "Index", "Cliente", new { area = "" }, null)</li>                    
+                    <li>@Html.ActionLink("Clientes", "Index", "Cliente", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
@@ -34,11 +34,11 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jtable")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/beneficiarios")
     @RenderSection("scripts", required: false)
 </body>
 </html>

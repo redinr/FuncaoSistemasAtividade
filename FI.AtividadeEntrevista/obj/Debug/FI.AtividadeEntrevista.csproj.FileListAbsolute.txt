@@ -34,3 +34,26 @@ C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEnt
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
 C:\Users\RicardoRedin\Documents\Projects\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.AddTableAndStoredProceduresBeneficiarios.resources
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.IncludeSP_VerificaCPF.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\FI.AtividadeEntrevista.dll.config
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\FI.AtividadeEntrevista.dll
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\FI.AtividadeEntrevista.pdb
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\EntityFramework.dll
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\EntityFramework.xml
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.AssemblyReference.cache
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.InsertFieldCpfTableClientes.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateStoredProcedures.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.NewUpdateStoredProcedure.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.AddTableAndStoredProceduresBeneficiarios.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.IncludeSP_VerificaCPF.resources
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.GenerateResource.cache
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.CoreCompileInputs.cache
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.CopyComplete
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.dll
+C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateSP_IncluirBeneficiario.resources
