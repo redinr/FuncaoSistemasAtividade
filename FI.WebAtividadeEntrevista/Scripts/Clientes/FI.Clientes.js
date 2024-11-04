@@ -17,7 +17,18 @@ $(document).ready(function () {
             Telefone: $('#formCadastro').find("#Telefone").val()
         };
 
-        const beneficiariosData = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+        var beneficiariosData = [];
+        const beneficiariosTemp = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+        beneficiariosTemp.forEach(f => {
+            if (f.Id === 0 && f.IdCliente === 0) {
+                beneficiariosData.push(f);
+            }
+        });
+
+        if (!validaCpf(clienteData.CPF)) {
+            ModalDialog("Ocorreu um erro", "O CPF informado é inválido.");
+            return;
+        }
 
         $.ajax({
             url: urlPost,
@@ -66,9 +77,10 @@ function ModalDialog(titulo, texto) {
     $('#' + random).modal('show');
 }
 
+//Formata o cpf conforme for digitando.
 function formataCPF() {
     $('#CPF').on('input', function () {
-        let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
+        let cpf = $(this).val().replace(/\D/g, '');
 
         if (cpf.length > 9) {
             cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
@@ -78,6 +90,37 @@ function formataCPF() {
             cpf = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
         }
 
-        $(this).val(cpf); // Atualiza o campo com o CPF formatado
+        $(this).val(cpf);
     });
+}
+
+//Verifica se o cpf é válido.
+function validaCpf(cpf) {
+    cpf = cpf.replace(/\D/g, "");
+
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+        return false;
+    }
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+
+    let resto = 11 - (soma % 11);
+    let digito1 = resto === 10 || resto === 11 ? 0 : resto;
+
+    if (digito1 !== parseInt(cpf.charAt(9))) {
+        return false;
+    }
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+
+    resto = 11 - (soma % 11);
+    let digito2 = resto === 10 || resto === 11 ? 0 : resto;
+
+    return digito2 === parseInt(cpf.charAt(10));
 }

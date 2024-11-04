@@ -25,11 +25,11 @@
                         <div class="col-md-4">
                             <p id="fieldId" style="display:none"></p>
                             <label for=" CPF" class="form-label">CPF:</label>
-                            <input type="text" class="form-control" maxlength="14" id="cpfBeneficiario" placeholder="Ex.: 999.999.999-99" oninput="this.value = formatarCPF(this.value)">
+                            <input type="text" required="required" class="form-control" maxlength="14" id="cpfBeneficiario" placeholder="Ex.: 999.999.999-99" oninput="this.value = formatarCPF(this.value)">
                         </div>
                         <div class="col-md-4">
                             <label for="Nome" class="form-label">Nome:</label>
-                            <input type="text" class="form-control" id="nomeBeneficiario" placeholder="Ex.: Maria">
+                            <input type="text" required="required" class="form-control" id="nomeBeneficiario" placeholder="Ex.: Maria">
                             <p id="fieldIdCliente" style="display:none"></p>
                         </div>
                         <div class="col-md-4">
@@ -37,9 +37,7 @@
                         </div>
                     </div>
                 </form>
-
                 <hr>
-
                 <table class="table">
                     <thead>
                         <tr>

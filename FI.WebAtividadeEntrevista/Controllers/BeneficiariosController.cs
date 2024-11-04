@@ -166,7 +166,7 @@ namespace FI.WebAtividadeEntrevista.Controllers
             }
             else
             {
-                model.CPF = Regex.Replace(model.CPF, @"[^\d]", "");
+                model.CPF = Regex.Replace(model.CPF, @"[/\D/g]", "");
                 return ValidaCpf(model.CPF);
             }
         }
