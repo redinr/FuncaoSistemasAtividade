@@ -1,93 +1,108 @@
 ﻿const beneficiarios = [];
+var IdCliente = 0;
 
 $(document).ready(function () {
-    FormataCPF();
+    $('#beneficiariosModal').on('show.bs.modal', function () {
+        IdCliente = Number($('#formCadastro #fieldIdCliente').val());
+        listarBeneficiarios();
+    });
 })
 
 function incluirBeneficiario() {
-    const cpfBeneficiario = document.getElementById('cpfBeneficiario').value;
-    const nomeBeneficiario = document.getElementById('nomeBeneficiario').value;
+    const Id = document.getElementById('fieldId').value;;
+    const CPF = document.getElementById('cpfBeneficiario').value;
+    const Nome = document.getElementById('nomeBeneficiario').value;
 
-    const campo = document.getElementById("idDoCampoForaDaModal");
-    const valorCampo = campo ? campo.value : null;
-    console.log(valorCampo); // Mostra o valor do campo no console
+    if (CPF && Nome) {
+        let beneficiariosTemp = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+        beneficiariosTemp.push({ Id, CPF, Nome, IdCliente });
 
-    var url = null;
-    if (typeof urlIncluirBeneficiario !== 'undefined') {
-        url = urlIncluirBeneficiario;
-    } else {
-        url = urlAlterarBeneficiario;
-    }
+        sessionStorage.setItem('beneficiariosTemp', JSON.stringify(beneficiariosTemp));
 
-    if (cpfBeneficiario && nomeBeneficiario) {
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: {
-                "CPF": cpfBeneficiario,
-                "Nome": nomeBeneficiario
-            },
-            error:
-                function (r) {
-                    if (r.status == 400)
-                        ModalDialog("Ocorreu um erro", r.responseJSON);
-                    else if (r.status == 500)
-                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
-                },
-            success:
-                function (r) {
-                    ModalDialog("Sucesso!", r)
-                }
-
-        });
-
-        beneficiarios.push({ cpfBeneficiario, nomeBeneficiario });
-        renderBeneficiarios();
+        $('#beneficiariosList').empty();
         document.getElementById('beneficiarioForm').reset();
+        listarBeneficiarios();
     }
 }
 
-function renderBeneficiarios() {
-    const beneficiariosList = document.getElementById('beneficiariosList');
-    beneficiariosList.innerHTML = '';
+function listarBeneficiarios() {
 
-    beneficiarios.forEach((beneficiario, index) => {
-        const row = `<tr>
-                  <td>${beneficiario.cpfBeneficiario}</td>
-                  <td>${beneficiario.nomeBeneficiario}</td>
-                  <td>
-                    <button class="btn btn-primary btn-sm" onclick="alterarBeneficiario(${index})">Alterar</button>
-                    <button class="btn btn-danger btn-sm" onclick="excluirBeneficiario(${index})">Excluir</button>
-                  </td>
-                </tr>`;
-        beneficiariosList.innerHTML += row;
+    const beneficiariosTemp = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+
+    if (beneficiariosTemp.length !== 0) {
+        preencheGrid(beneficiariosTemp);
+    } else {
+        $.ajax({
+            url: '/Beneficiarios/GetListaBeneficiarios',
+            method: 'GET',
+            success: function (data) {
+
+                data.forEach(f => {
+                    beneficiariosTemp.push({ Id: f.Id, CPF: f.CPF, Nome: f.Nome, IdCliente: f.IdCliente });
+
+                    sessionStorage.setItem('beneficiariosTemp', JSON.stringify(beneficiariosTemp));
+                });
+
+                preencheGrid(data);
+            },
+            error: function () {
+                ModalDialog("Ocorreu um erro", "Erro ao carregar a lista de beneficiários.");
+            }
+        });
+    }
+}
+
+function preencheGrid(listaDados) {
+    const beneficiariosList = $('#beneficiariosList');
+    beneficiariosList.empty();
+
+    var index = 0;
+    listaDados.forEach(beneficiario => {
+        if (IdCliente == beneficiario.IdCliente) {
+            var id = beneficiario.Id;
+            var cpf = formatarCPF(beneficiario.CPF);
+            var nome = beneficiario.Nome;
+            var idCliente = beneficiario.IdCliente;
+
+            const row = `
+                        <tr>
+                            <td style="display: none">${id}</td>
+                            <td>${cpf}</td>
+                            <td>${nome}</td>
+                            <td style="display: none">${idCliente}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm alterar-btn" onclick="alterarBeneficiario(${index})">Alterar</button>
+                                <button type="button" class="btn btn-primary btn-sm deletar-btn" onclick="excluirBeneficiario(${index})">Excluir</button>
+                            </td>
+                        </tr>`;
+            beneficiariosList.append(row);
+            index++;
+            beneficiarios.push({ Id: id, CPF: cpf, Nome: nome, IdCliente: idCliente });
+        }
     });
 }
 
 function alterarBeneficiario(index) {
     const beneficiario = beneficiarios[index];
-    document.getElementById('cpfBeneficiario').value = beneficiario.cpfBeneficiario;
-    document.getElementById('nomeBeneficiario').value = beneficiario.nomeBeneficiario;
-    excluirBeneficiario(index); 
+    document.getElementById('fieldId').value = beneficiario.Id;
+    document.getElementById('cpfBeneficiario').value = beneficiario.CPF;
+    document.getElementById('nomeBeneficiario').value = beneficiario.Nome;
+    document.getElementById('fieldIdCliente').value = beneficiario.IdCliente;
+    excluirBeneficiario(index);
 }
 
 function excluirBeneficiario(index) {
-    beneficiarios.splice(index, 1);
-    renderBeneficiarios();
+    let beneficiariosTemp = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+    beneficiariosTemp.splice(index, 1);
+    sessionStorage.setItem('beneficiariosTemp', JSON.stringify(beneficiariosTemp));
+    beneficiarios.splice(index, 1);      
+    listarBeneficiarios();
 }
 
-function FormataCPF() {
-    $('#cpfBeneficiario').on('input', function () {
-        let cpf = $(this).val().replace(/\D/g, '');
-
-        if (cpf.length > 9) {
-            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-        } else if (cpf.length > 6) {
-            cpf = cpf.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
-        } else if (cpf.length > 3) {
-            cpf = cpf.replace(/(\d{3})(\d{1,3})/, "$1.$2");
-        }
-
-        $(this).val(cpf);
-    });
+function formatarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, "");
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    return cpf;
 }

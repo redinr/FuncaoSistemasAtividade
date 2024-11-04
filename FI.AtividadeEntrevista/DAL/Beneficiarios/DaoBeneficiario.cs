@@ -19,7 +19,7 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiarios
             parametros.Add(new SqlParameter("CPF", beneficiarios.CPF));
             parametros.Add(new SqlParameter("IdCliente", beneficiarios.IdCliente));
 
-            DataSet dataSet = Consultar("SP_IncluirBeneficiario", parametros);
+            DataSet dataSet = Consultar("SP_IncluirBeneficiario", parametros);            
             long resultado = 0;
             if (dataSet.Tables[0].Rows.Count > 0)
             {
@@ -34,10 +34,7 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiarios
         /// <returns></returns>
         public List<DML.Beneficiario> Listar()
         {
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("Id", 0));
-
-            DataSet dataSet = Consultar("SP_ListarBeneficiarios", parameters);
+            DataSet dataSet = Consultar("SP_ListarBeneficiarios");
             List<DML.Beneficiario> beneficiarios = Converte(dataSet);
 
             return beneficiarios;

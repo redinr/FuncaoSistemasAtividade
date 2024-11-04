@@ -1,38 +1,45 @@
 ﻿
 $(document).ready(function () {
-    FormataCPF();
+    formataCPF();
     $('#formCadastro').submit(function (e) {
         e.preventDefault();
+
+        const clienteData = {
+            NOME: $('#formCadastro').find("#Nome").val(),
+            CEP: $('#formCadastro').find("#CEP").val(),
+            Email: $('#formCadastro').find("#Email").val(),
+            Sobrenome: $('#formCadastro').find("#Sobrenome").val(),
+            Nacionalidade: $('#formCadastro').find("#Nacionalidade").val(),
+            CPF: $('#formCadastro').find("#CPF").val(),
+            Estado: $('#formCadastro').find("#Estado").val(),
+            Cidade: $('#formCadastro').find("#Cidade").val(),
+            Logradouro: $('#formCadastro').find("#Logradouro").val(),
+            Telefone: $('#formCadastro').find("#Telefone").val()
+        };
+
+        const beneficiariosData = JSON.parse(sessionStorage.getItem('beneficiariosTemp')) || [];
+
         $.ajax({
             url: urlPost,
             method: "POST",
-            data: {
-                "NOME": $(this).find("#Nome").val(),
-                "CEP": $(this).find("#CEP").val(),
-                "Email": $(this).find("#Email").val(),
-                "Sobrenome": $(this).find("#Sobrenome").val(),
-                "Nacionalidade": $(this).find("#Nacionalidade").val(),
-                "CPF": $(this).find("#CPF").val(),
-                "Estado": $(this).find("#Estado").val(),
-                "Cidade": $(this).find("#Cidade").val(),
-                "Logradouro": $(this).find("#Logradouro").val(),
-                "Telefone": $(this).find("#Telefone").val()
-            },
+            contentType: 'application/json',
+            data: JSON.stringify({ cliente: clienteData, beneficiarios: beneficiariosData }),
             error:
-            function (r) {
-                if (r.status == 400)
-                    ModalDialog("Ocorreu um erro", r.responseJSON);
-                else if (r.status == 500)
-                    ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
-            },
+                function (r) {
+                    if (r.status == 400)
+                        ModalDialog("Ocorreu um erro", r.responseJSON);
+                    else if (r.status == 500)
+                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
+                },
             success:
-            function (r) {
-                ModalDialog("Sucesso!", r)
-                $("#formCadastro")[0].reset();
-            }
+                function (r) {
+                    ModalDialog("Sucesso!", r);
+                    sessionStorage.removeItem('beneficiariosTemp');
+                    $("#formCadastro")[0].reset();
+                }
         });
     })
-    
+
 })
 
 function ModalDialog(titulo, texto) {
@@ -59,7 +66,7 @@ function ModalDialog(titulo, texto) {
     $('#' + random).modal('show');
 }
 
-function FormataCPF() {
+function formataCPF() {
     $('#CPF').on('input', function () {
         let cpf = $(this).val().replace(/\D/g, ''); // Remove qualquer caractere não numérico
 

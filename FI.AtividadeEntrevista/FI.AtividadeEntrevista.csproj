@@ -80,6 +80,10 @@
     <Compile Include="Migrations\202411021114103_IncludeSP_VerificaCPF.Designer.cs">
       <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.cs" />
+    <Compile Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.Designer.cs">
+      <DependentUpon>202411032307042_UpdateSP_IncluirBeneficiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411021114103_IncludeSP_VerificaCPF.resx">
       <DependentUpon>202411021114103_IncludeSP_VerificaCPF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411032307042_UpdateSP_IncluirBeneficiario.resx">
+      <DependentUpon>202411032307042_UpdateSP_IncluirBeneficiario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

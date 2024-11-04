@@ -23,7 +23,11 @@ namespace FI.WebAtividadeEntrevista.Controllers
             return View();
         }
 
-
+        /// <summary>
+        /// Inclui um novo registro.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult Incluir(BeneficiariosModel model)
         {
@@ -65,7 +69,11 @@ namespace FI.WebAtividadeEntrevista.Controllers
             return Json("Cadastro efetuado com sucesso");
         }
 
-
+        /// <summary>
+        /// Altera ou inclui um novo registro.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult Alterar(BeneficiariosModel model)
         {
@@ -78,13 +86,6 @@ namespace FI.WebAtividadeEntrevista.Controllers
                 return Json(string.Join(Environment.NewLine, "O CPF deve conter 11 dígitos e ser válido."));
             }
 
-            var cpfExistente = boBeneficiario.VerificaExistente(model.CPF);
-            if (cpfExistente)
-            {
-                Response.StatusCode = 400;
-                return Json(string.Join(Environment.NewLine, "O CPF já cadastrado na base de dados."));
-            }
-
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -94,7 +95,9 @@ namespace FI.WebAtividadeEntrevista.Controllers
                 Response.StatusCode = 400;
                 return Json(string.Join(Environment.NewLine, erros));
             }
-            else
+
+            var cpfExistente = boBeneficiario.VerificaExistente(model.CPF);
+            if (cpfExistente)
             {
                 boBeneficiario.Alterar(new Beneficiario
                 {
@@ -103,20 +106,53 @@ namespace FI.WebAtividadeEntrevista.Controllers
                     Nome = model.Nome,
                     IdCliente = model.IdCliente
                 });
-            }
 
-            return Json("Cadastro alterado com sucesso");
+                return Json("Cadastro alterado com sucesso");
+            }
+            else
+            {
+                model.Id = boBeneficiario.Incluir(new Beneficiario
+                {
+                    CPF = model.CPF,
+                    Nome = model.Nome,
+                    IdCliente = model.IdCliente
+                });
+                return Json("Cadastro efetuado com sucesso");
+            }
         }
 
-
+        /// <summary>
+        /// Exclui o registro.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(long id)
+        public JsonResult Deletar(long id)
         {
             BoBeneficiario boBeneficiario = new BoBeneficiario();
             boBeneficiario.Deletar(id);
 
             return Json("Cadastro removido com sucesso");
         }
+
+        /// <summary>
+        /// Lista todos os beneficiarios da tabela.
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetListaBeneficiarios()
+        {
+            BoBeneficiario boBeneficiario = new BoBeneficiario();
+            var beneficiarios = boBeneficiario.Listar().Select(s => new
+            {
+                s.Id,
+                s.Nome,
+                s.CPF,
+                s.IdCliente
+            }).ToList();
+
+            return Json(beneficiarios, JsonRequestBehavior.AllowGet);
+        }
+
 
         /// <summary>
         /// Verifica se o CPF não está vazio e remove a formatação do mesmo.

@@ -23,12 +23,14 @@
                 <form id="beneficiarioForm">
                     <div class="row">
                         <div class="col-md-4">
+                            <p id="fieldId" style="display:none"></p>
                             <label for=" CPF" class="form-label">CPF:</label>
-                            <input type="text" class="form-control" id="cpfBeneficiario" placeholder="Ex.: 010.011.111-00">
+                            <input type="text" class="form-control" maxlength="14" id="cpfBeneficiario" placeholder="Ex.: 999.999.999-99" oninput="this.value = formatarCPF(this.value)">
                         </div>
                         <div class="col-md-4">
                             <label for="Nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" id="nomeBeneficiario" placeholder="Ex.: Maria">
+                            <p id="fieldIdCliente" style="display:none"></p>
                         </div>
                         <div class="col-md-4">
                             <button type="button" id="btnIncluirBeneficiario" class="btn btn-success" onclick="incluirBeneficiario()">Incluir</button>
@@ -47,7 +49,6 @@
                         </tr>
                     </thead>
                     <tbody id="beneficiariosList">
-                        <!-- Lista de beneficiários será inserida aqui dinamicamente -->
                     </tbody>
                 </table>
             </div>

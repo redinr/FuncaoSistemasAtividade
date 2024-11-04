@@ -56,3 +56,4 @@ C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.Atividade
 C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.csproj.CopyComplete
 C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.dll
 C:\Users\Eduarda Brixner\Documents\Projetos\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.pdb
+C:\Users\rredin\Music\FuncaoSistemasAtividade\FI.AtividadeEntrevista\obj\Debug\FI.AtividadeEntrevista.Migrations.UpdateSP_IncluirBeneficiario.resources

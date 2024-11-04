@@ -3,12 +3,13 @@ $(document).ready(function () {
     ValideCPF();
 
     if (obj) {
+        $('#formCadastro #fieldIdCliente').val(obj.Id);
         $('#formCadastro #Nome').val(obj.Nome);
         $('#formCadastro #CEP').val(obj.CEP);
         $('#formCadastro #Email').val(obj.Email);
         $('#formCadastro #Sobrenome').val(obj.Sobrenome);
         $('#formCadastro #Nacionalidade').val(obj.Nacionalidade);
-        $('#formCadastro #CPF').val(obj.CPF);
+        $('#formCadastro #CPF').val(formatarCPF(obj.CPF));
         $('#formCadastro #Estado').val(obj.Estado);
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
@@ -89,4 +90,12 @@ function ValideCPF() {
 
         $(this).val(cpf); // Atualiza o campo com o CPF formatado
     });
+}
+
+function formatarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, "");
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    return cpf;
 }

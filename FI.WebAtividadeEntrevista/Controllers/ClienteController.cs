@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using FI.AtividadeEntrevista.DML;
 using Microsoft.Ajax.Utilities;
 using System.Text.RegularExpressions;
+using System.Reflection;
 
 namespace WebAtividadeEntrevista.Controllers
 {
@@ -24,18 +25,19 @@ namespace WebAtividadeEntrevista.Controllers
         }
 
         [HttpPost]
-        public JsonResult Incluir(ClienteModel model)
+        public ActionResult Incluir(ClienteModel cliente, List<BeneficiariosModel> beneficiarios)
         {
-            BoCliente bo = new BoCliente();
+            BoCliente boCliente = new BoCliente();
+            BoBeneficiario boBeneficiario = new BoBeneficiario();
 
-            var validaCpf = RemoveFormatacaoCPf(model);
+            var validaCpf = RemoveFormatacaoCPf(cliente.CPF);
             if (!validaCpf)
             {                
                 Response.StatusCode = 400;
                 return Json(string.Join(Environment.NewLine, "O CPF deve conter 11 dígitos e ser válido."));
             }
 
-            var cpfExistente = bo.VerificarExistencia(model.CPF);
+            var cpfExistente = boCliente.VerificarExistencia(cliente.CPF);
             if (cpfExistente)
             {
                 Response.StatusCode = 400;
@@ -54,44 +56,60 @@ namespace WebAtividadeEntrevista.Controllers
             else
             {
 
-                model.Id = bo.Incluir(new Cliente()
+                cliente.Id = boCliente.Incluir(new Cliente()
                 {
-                    CEP = model.CEP,
-                    Cidade = model.Cidade,
-                    Email = model.Email,
-                    Estado = model.Estado,
-                    Logradouro = model.Logradouro,
-                    Nacionalidade = model.Nacionalidade,
-                    CPF = model.CPF,
-                    Nome = model.Nome,
-                    Sobrenome = model.Sobrenome,
-                    Telefone = model.Telefone
+                    CEP = cliente.CEP,
+                    Cidade = cliente.Cidade,
+                    Email = cliente.Email,
+                    Estado = cliente.Estado,
+                    Logradouro = cliente.Logradouro,
+                    Nacionalidade = cliente.Nacionalidade,
+                    CPF = cliente.CPF,
+                    Nome = cliente.Nome,
+                    Sobrenome = cliente.Sobrenome,
+                    Telefone = cliente.Telefone
                 });
 
+                foreach(var item in beneficiarios)
+                {
+                    var validaCpfBene = RemoveFormatacaoCPf(item.CPF);
+                    if (!validaCpf)
+                    {
+                        Response.StatusCode = 400;
+                        return Json(string.Join(Environment.NewLine, "O CPF: "+ item.CPF +"  deve conter 11 dígitos e ser válido."));
+                    }
 
+                    var cpfExistenteBene = boBeneficiario.VerificaExistente(item.CPF);
+                    if (cpfExistenteBene)
+                    {
+                        Response.StatusCode = 400;
+                        return Json(string.Join(Environment.NewLine, "O CPF: "+ item.CPF +" já cadastrado na base de dados."));
+                    }
+                    
+                    boBeneficiario.Incluir(new Beneficiario
+                    {
+                        CPF = item.CPF,
+                        Nome = item.Nome,
+                        IdCliente = cliente.Id
+                    });
+                }
                 return Json("Cadastro efetuado com sucesso");
             }
         }
+
 
         [HttpPost]
         public JsonResult Alterar(ClienteModel model)
         {
             BoCliente bo = new BoCliente();
 
-            var validaCpf = RemoveFormatacaoCPf(model);
+            var validaCpf = RemoveFormatacaoCPf(model.CPF);
 
             if (!validaCpf)
             {
                 Response.StatusCode = 400;
                 return Json(string.Join(Environment.NewLine, "O CPF deve conter 11 dígitos e ser válido."));
-            }
-
-            var cpfExistente = bo.VerificarExistencia(model.CPF);
-            if (cpfExistente)
-            {
-                Response.StatusCode = 400;
-                return Json(string.Join(Environment.NewLine, "O CPF já cadastrado na base de dados."));
-            }
+            }            
 
             if (!this.ModelState.IsValid)
             {
@@ -184,16 +202,16 @@ namespace WebAtividadeEntrevista.Controllers
         /// Verifica se o CPF não está vazio e remove a formatação do mesmo.
         /// </summary>
         /// <param name="model"></param>
-        private bool RemoveFormatacaoCPf(ClienteModel model)
+        private bool RemoveFormatacaoCPf(string cpf)
         {
-            if (string.IsNullOrWhiteSpace(model.CPF))
+            if (string.IsNullOrWhiteSpace(cpf))
             {
                 return false;
             }
             else
             {
-                model.CPF = Regex.Replace(model.CPF, @"[^\d]", "");
-                return ValidaCpf(model.CPF);
+                cpf = Regex.Replace(cpf, @"[^\d]", "");
+                return ValidaCpf(cpf);
             }
         }
 
